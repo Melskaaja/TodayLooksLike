@@ -1,21 +1,26 @@
 {
   "name": "today-looks-like",
+  "private": true,
   "version": "0.1.0",
   "description": "Today Looks Like..",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "test"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:Melskaaja/TodayLooksLike.git"
   },
-  "keywords": [
-    "tll", "today", "looks", "like"
-  ],
   "author": "Melskaaja",
-  "bugs": {
-    "url": "https://github.com/Melskaaja/TodayLooksLike/issues"
+  "dependencies": {
+    "lightvue": "^1.4.9",
+    "pinia": "^2.0.22",
+    "vue": "^3.2.37"
   },
-  "homepage": "https://github.com/Melskaaja/TodayLooksLike#readme"
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.1.0",
+    "vite": "^3.1.0"
+  }
 }
