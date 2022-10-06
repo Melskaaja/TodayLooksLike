@@ -15,12 +15,17 @@
   },
   "author": "Melskaaja",
   "dependencies": {
+    "light-icons": "^1.0.10",
     "lightvue": "^1.4.9",
     "pinia": "^2.0.22",
     "vue": "^3.2.37"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.0",
+    "autoprefixer": "^10.4.12",
+    "postcss": "^8.4.17",
+    "postcss-nested": "^6.0.0",
+    "sass": "^1.55.0",
     "vite": "^3.1.0"
   }
 }
