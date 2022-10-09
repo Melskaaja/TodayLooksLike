@@ -1,0 +1,22 @@
+
+@import 'tll-variables';
+@import 'tll-baseline';
+@import 'tll-fonts';
+
+
+// Naive-UI component partial CSS
+
+.n-button {
+    .n-button__content {
+        display: none !important;
+        @media (min-width: $breakpoint-md) {
+            display: inline !important;
+        }
+    }
+    .n-button__icon {
+        margin-right: 0px;
+        @media (min-width: $breakpoint-md) {
+            margin-right: var(--n-icon-margin);
+        }
+    }
+}
