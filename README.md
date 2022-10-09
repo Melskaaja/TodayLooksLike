@@ -1,7 +1,33 @@
-# Vue 3 + Vite
+## TLL ~ Today Looks Like
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+---
+### How was your day?
+Track multiple aspects of your life in one app. See the effects that one aspect's changes has on the other areas of your life via some fancy graphs (they're not there yet, but I promise they will be).
 
-## Recommended IDE Setup
+### Roadmap
+I don't have a concrete plan in place for this app, but some things have been rolling around in my head. Here's a non-conclusive list:
+- implementing some kind of user/auth + login system
+- learning to use Pinia and storing immediate data
+- including Mongodb and storing long-term data
+- making graphs etc. from user-generated data, possibly with https://dmtrbrl.github.io/vue-trend-chart/
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+---
+### Powered by
+
+Framework
+- Vue 3 https://vuejs.org/
+
+Dev tools
+- Vite https://vitejs.dev/
+  - Vite SSR Plugin https://vite-plugin-ssr.com/
+- Sass https://sass-lang.com/
+- PostCSS https://postcss.org/
+  - PostCSS Nested https://github.com/postcss/postcss-nested
+  - Autoprefixer https://autoprefixer.github.io/
+
+UI & UX
+- Naive UI components https://www.naiveui.com/en-US/
+
+Data storing
+- Pinia (soon) https://pinia.vuejs.org/
+- Mongodb (soon) https://www.mongodb.com/
