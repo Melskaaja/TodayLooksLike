@@ -1,4 +1,4 @@
-## TLL ~ Today Looks Like
+## TLL ~ Today Looks Like..
 
 ---
 ### How was your day?
@@ -19,6 +19,7 @@ Framework
 
 Dev tools
 - Vite https://vitejs.dev/
+  - Vue SFC plugin https://github.com/vitejs/vite/tree/main/packages/plugin-vue
   - Vite SSR Plugin https://vite-plugin-ssr.com/
 - Sass https://sass-lang.com/
 - PostCSS https://postcss.org/
@@ -27,6 +28,7 @@ Dev tools
 
 UI & UX
 - Naive UI components https://www.naiveui.com/en-US/
+- xicons https://www.xicons.org/
 
 Data storing
 - Pinia (soon) https://pinia.vuejs.org/
