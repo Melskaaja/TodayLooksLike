@@ -6,7 +6,7 @@
 
 // Naive-UI component partial CSS
 
-.n-button {
+.n-button.collapse {
     .n-button__content {
         display: none !important;
         @media (min-width: $breakpoint-md) {
@@ -19,4 +19,17 @@
             margin-right: var(--n-icon-margin);
         }
     }
+}
+.n-switch {
+    &.n-switch--active {
+        &.checked-icon-danger .n-switch__button-icon {
+            --n-icon-color: #db3030;
+        }
+        &.checked-icon-warning .n-switch__button-icon {
+            --n-icon-color: #f8c620;
+        }
+    }
+}
+.n-input textarea {
+    font-size: 15px !important;
 }

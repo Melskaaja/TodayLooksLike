@@ -1,6 +1,31 @@
-<script setup></script>
+<script setup>
+import { reactive } from 'vue'
+import { NSpace, NSwitch, NIcon } from 'naive-ui'
+import { Close, Checkmark, FavoriteFilled } from '@vicons/carbon'
+
+let selections = reactive({ friends: false, partner: false });
+</script>
     
 <template>
-    <p>Socially awkward much?</p>
+    <n-space>
+        <n-switch v-model:value="selections.friends">
+            <template #unchecked-icon><n-icon :component="Close"></n-icon></template>
+            <template #checked-icon><n-icon :component="Checkmark"></n-icon></template>
+        </n-switch>
+        Got to see my friends
+    </n-space>
+    <n-space>
+        <n-switch v-model:value="selections.hobbies">
+            <template #unchecked-icon><n-icon :component="Close"></n-icon></template>
+            <template #checked-icon><n-icon :component="Checkmark"></n-icon></template>
+        </n-switch>
+        Spent time at my hobbies
+    </n-space>
+    <n-space>
+        <n-switch v-model:value="selections.partner" class="checked-icon-danger">
+            <template #unchecked-icon><n-icon :component="Close"></n-icon></template>
+            <template #checked-icon><n-icon :component="FavoriteFilled"></n-icon></template>
+        </n-switch>
+        Hung out with my partner
+    </n-space>
 </template>
-    

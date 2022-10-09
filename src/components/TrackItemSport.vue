@@ -1,6 +1,11 @@
-<script setup></script>
+<script setup>
+import { reactive } from 'vue'
+import { NSpace } from 'naive-ui'
+</script>
     
 <template>
-    <p>I don't like the outdoors.</p>
+    <n-space>
+        I seriously don't want to think about this.
+    </n-space>
 </template>
     

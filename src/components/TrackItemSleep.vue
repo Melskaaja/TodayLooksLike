@@ -1,6 +1,11 @@
-<script setup></script>
+<script setup>
+import { reactive } from 'vue'
+import { NSpace } from 'naive-ui'
+</script>
     
 <template>
-    <p>Sleeping well &lt;3</p>
+    <n-space>
+        Zzz...
+    </n-space>
 </template>
     

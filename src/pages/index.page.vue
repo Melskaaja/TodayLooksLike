@@ -4,7 +4,7 @@ import TrackCard from '../components/TrackCard.vue';
 </script>
 
 <template>
-    <h5 class="first">Quick track</h5>
+    <h1 class="first">Quick track</h1>
     <track-card></track-card>
 </template>
 

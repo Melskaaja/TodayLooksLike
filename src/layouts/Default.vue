@@ -1,14 +1,33 @@
 <script setup>
 import { NConfigProvider, NIcon } from 'naive-ui';
-import { createTheme, cardDark } from 'naive-ui';
+import { createTheme, cardDark, sliderDark, inputDark, switchDark } from 'naive-ui';
 import { Lightning, SettingsAdjust } from '@vicons/carbon';
 
-let tllTheme = createTheme([ cardDark ])
+let tllTheme = createTheme([ cardDark, sliderDark, inputDark, switchDark ]);
+let tllOverride = {
+    common: {
+        fontFamily: 'Dosis, Helvetica, Arial, sans-serif',
+        fontSize: '18px',
+        fontSizeHuge: '22px',
+        fontSizeLarge: '20px',
+        fontSizeMedium: '18px',
+        fontSizeMini: '15px',
+        fontSizeSmall: '15px',
+        fontSizeTiny: '12px'
+    },
+    slider: {
+        markFontSize: '15px'
+    },
+    input: {
+        fontSizeMedium: '16px'
+    }
+};
+
 let year = new Date().getFullYear();
 </script>
 
 <template>
-    <n-config-provider :theme="tllTheme">
+    <n-config-provider :theme="tllTheme" :themeOverrides="tllOverride">
         <header>
             <nav>
                 <a class="navitem" href="/">
@@ -66,6 +85,7 @@ header {
     }
 }
 main {
+    font-size: $text-size !important;
     margin: 0 auto;
     padding-top: $header-height;
     padding-bottom: $footer-height;

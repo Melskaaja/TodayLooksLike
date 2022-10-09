@@ -9,7 +9,7 @@ const btns = [ // id, label, icon, color
     ['mood', 'Mood', FaceSatisfied, '#EEC933'],
     ['social', 'Social', Friendship, '#42A9C2'],
     ['work', 'Work', NetworkEnterprise, '#AD8060'],
-    ['sport', 'Activity', Activity, '#A8EF8E'],
+    ['sport', 'Activity', Activity, '#618F4F'],
     ['journal', 'Journal', Chat, '#AA75EF'],
     ['period', 'Period', RainDrop, '#E64141'],
     ['sleep', 'Sleep', Moon, '#2F4270']
@@ -39,6 +39,7 @@ if (props.preselected?.length) {
 <template>
     <n-button-group>
         <n-button v-for="btn in btns" 
+                class="collapse"
                 v-show="visibleBtns.includes(btn[0])" 
                 :color="btn[3]"
                 :ghost="activeBtn != btn[0]" 
@@ -58,6 +59,7 @@ if (props.preselected?.length) {
     display: flex;
     flex: 0 0 100%;
     flex-wrap: wrap;
+    margin-bottom: $gap;
     @media (min-width: $breakpoint-sm) {
         flex-wrap: nowrap;
     }
