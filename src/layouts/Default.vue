@@ -1,9 +1,9 @@
 <script setup>
 import { NConfigProvider, NIcon } from 'naive-ui';
-import { createTheme, cardDark, sliderDark, inputDark, switchDark } from 'naive-ui';
+import { createTheme, cardDark, sliderDark, inputDark, switchDark, inputNumberDark } from 'naive-ui';
 import { Lightning, SettingsAdjust } from '@vicons/carbon';
 
-let tllTheme = createTheme([ cardDark, sliderDark, inputDark, switchDark ]);
+let tllTheme = createTheme([ cardDark, sliderDark, inputDark, switchDark, inputNumberDark ]);
 let tllOverride = {
     common: {
         fontFamily: 'Dosis, Helvetica, Arial, sans-serif',

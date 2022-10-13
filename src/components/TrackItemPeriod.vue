@@ -15,7 +15,7 @@ let flows = {
     
 <template>
     <n-space>
-        <n-switch v-model:value="selections.active" class="checked-icon-danger">
+        <n-switch v-model:value="selections.active" class="checked-icon-danger color-period">
             <template #unchecked-icon><n-icon :component="Close"></n-icon></template>
             <template #checked-icon><n-icon :component="RainDrop"></n-icon></template>
         </n-switch> Aunt Flo

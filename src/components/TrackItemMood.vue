@@ -45,7 +45,7 @@ function toggleFeelSelection(feel) {
             <n-button v-for="btn in feels" 
                     :key="btn[0]" round 
                     :type="btn[2]"
-                    :dashed="!selected.feels.includes(btn[0])"
+                    :ghost="!selected.feels.includes(btn[0])"
                     @click="toggleFeelSelection(btn[0])">
                 {{ btn[1] }}
             </n-button>

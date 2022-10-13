@@ -3,7 +3,7 @@ import { NSpace } from 'naive-ui'
 </script>
 
 <template>
-    <n-space>
+    <n-space vertical>
         <h1 class="first">Preferences</h1>
         There will be many switches here to toggle which kinds of stuff to follow. Options include:
         <ol>

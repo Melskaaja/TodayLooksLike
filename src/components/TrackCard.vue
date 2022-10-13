@@ -4,6 +4,7 @@ import { NCard } from 'naive-ui'
 import TrackButtons from './TrackButtons.vue'
 import TrackItemMood from './TrackItemMood.vue'
 import TrackItemSocial from './TrackItemSocial.vue'
+import TrackItemFood from './TrackItemFood.vue'
 import TrackItemWork from './TrackItemWork.vue'
 import TrackItemSport from './TrackItemSport.vue'
 import TrackItemJournal from './TrackItemJournal.vue'
@@ -13,7 +14,7 @@ import TrackItemSleep from './TrackItemSleep.vue'
 const props = defineProps(['day']);
 
 // TODO get tracks from pinia
-let trackTypes = ['mood', 'social', 'work', 'sport', 'journal', 'period', 'sleep'];
+let trackTypes = ['mood', 'social', 'food', 'journal', 'work', 'sport', 'period', 'sleep'];
 let activeTrack = ref('');
 </script>
 
@@ -25,6 +26,9 @@ let activeTrack = ref('');
         </div>
         <div v-if="activeTrack == 'social'">
             <track-item-social></track-item-social>
+        </div>
+        <div v-if="activeTrack == 'food'">
+            <track-item-food></track-item-food>
         </div>
         <div v-if="activeTrack == 'work'">
             <track-item-work></track-item-work>

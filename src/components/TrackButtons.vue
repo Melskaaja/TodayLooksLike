@@ -1,21 +1,22 @@
 <script setup>
 import { ref } from 'vue';
 import { NButton, NButtonGroup, NIcon } from 'naive-ui';
-import { FaceSatisfied, Friendship, NetworkEnterprise, Activity, Chat, RainDrop, Moon } from '@vicons/carbon';
+import { FaceSatisfied, Friendship, NetworkEnterprise, NoodleBowl, Activity, Chat, RainDrop, Moon } from '@vicons/carbon';
 
 const props = defineProps(['hide', 'only', 'preselected']);
 
 const btns = [ // id, label, icon, color
     ['mood', 'Mood', FaceSatisfied, '#EEC933'],
     ['social', 'Social', Friendship, '#42A9C2'],
-    ['work', 'Work', NetworkEnterprise, '#AD8060'],
-    ['sport', 'Activity', Activity, '#618F4F'],
+    ['food', 'Food', NoodleBowl, '#578146'],
     ['journal', 'Journal', Chat, '#AA75EF'],
+    ['work', 'Work', NetworkEnterprise, '#AD8060'],
+    ['sport', 'Activity', Activity, '#a74c8b'],
     ['period', 'Period', RainDrop, '#E64141'],
     ['sleep', 'Sleep', Moon, '#2F4270']
 ];
 let activeBtn = ref('');
-let visibleBtns = ['mood', 'social', 'work', 'sport', 'journal', 'period', 'sleep'];
+let visibleBtns = ['mood', 'social', 'food', 'journal', 'work', 'sport', 'period', 'sleep'];
 // TODO get visibleBtns from pinia
 
 if (props.hide?.length) {

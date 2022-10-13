@@ -1,11 +1,82 @@
-
 @import 'tll-variables';
-@import 'tll-baseline';
 @import 'tll-fonts';
 
+// Baseline "resets"
+
+:root {
+    font-family: $text-font;
+    font-size: $text-size;
+    line-height: $text-size*1.6;
+    font-weight: $text-weight;
+  
+    color-scheme: dark light;
+    color: $text;
+    background-color: $background;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    
+    @media (prefers-color-scheme: light) {
+        color: $light-text;
+        background-color: $light-background;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    &#app {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font;
+    font-weight: $heading-weight;
+    margin-bottom: $gap;
+    &.first {
+        margin-top: 0;
+    }
+}
+h4, h5, h6 {
+    margin-bottom: calc($gap / 2);
+}
+h1 { font-size: $h1-size; }
+h2 { font-size: $h2-size; }
+h3 { font-size: $h3-size; }
+h4 { font-size: $h4-size; }
+h5 { font-size: $h5-size; }
+h6 { font-size: $h6-size; }
+
+a {
+    color: $link;
+    font-weight: $link-weight;
+    text-decoration: inherit;
+    &:hover {
+        color: $link-hover;
+    }
+}
+
+p {
+    padding: $text-pad;
+    margin: $text-pad 0;
+}
 
 // Naive-UI component partial CSS
 
+.n-space {
+    margin-bottom: $gap;
+    .top-gap {
+        margin-top: $gap;
+    }
+}
 .n-button.collapse {
     .n-button__content {
         display: none !important;
@@ -28,6 +99,26 @@
         &.checked-icon-warning .n-switch__button-icon {
             --n-icon-color: #f8c620;
         }
+    }
+    &.color-social .n-switch__rail {
+        --n-rail-color-active: #42A9C2;
+        --n-box-shadow-focus: 0 0 8px 0 #42A9C2;
+    }
+    &.color-food .n-switch__rail {
+        --n-rail-color-active: #578146;
+        --n-box-shadow-focus: 0 0 8px 0 #578146;
+    }
+    &.color-work .n-switch__rail {
+        --n-rail-color-active: #AD8060;
+        --n-box-shadow-focus: 0 0 8px 0 #AD8060;
+    }
+    &.color-period .n-switch__rail {
+        --n-rail-color-active: #E64141;
+        --n-box-shadow-focus: 0 0 8px 0 #E64141;
+    }
+    &.color-sleep .n-switch__rail {
+        --n-rail-color-active: #2F4270;
+        --n-box-shadow-focus: 0 0 8px 0 #2F4270;
     }
 }
 .n-input textarea {
