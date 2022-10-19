@@ -9,11 +9,11 @@ const btns = [ // id, label, icon, color
     ['mood', 'Mood', FaceSatisfied, '#EEC933'],
     ['social', 'Social', Friendship, '#42A9C2'],
     ['food', 'Food', NoodleBowl, '#578146'],
-    ['journal', 'Journal', Chat, '#AA75EF'],
     ['work', 'Work', NetworkEnterprise, '#AD8060'],
     ['sport', 'Activity', Activity, '#a74c8b'],
     ['period', 'Period', RainDrop, '#E64141'],
-    ['sleep', 'Sleep', Moon, '#2F4270']
+    ['sleep', 'Sleep', Moon, '#2F4270'],
+    ['journal', 'Journal', Chat, '#AA75EF']
 ];
 let activeBtn = ref('');
 let visibleBtns = ['mood', 'social', 'food', 'journal', 'work', 'sport', 'period', 'sleep'];
@@ -54,7 +54,7 @@ if (props.preselected?.length) {
 </template>
 
 <style scoped lang="scss">
-@import '../scss/tll-variables';
+@import '../styles/tll-variables';
 .n-button-group {
     width: 100%;
     display: flex;

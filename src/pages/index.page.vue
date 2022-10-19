@@ -9,7 +9,7 @@ import TrackCard from '../components/TrackCard.vue';
 </template>
 
 <style scoped lang="scss">
-@import '../scss/tll-variables';
+@import '../styles/tll-variables';
 .n-card {
     margin-bottom: $gap;
 }

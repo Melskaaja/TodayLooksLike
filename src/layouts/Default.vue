@@ -50,7 +50,7 @@ let year = new Date().getFullYear();
 </template>
 
 <style scoped lang="scss">
-@import '../scss/tll-variables';
+@import '../styles/tll-variables';
 header {
     position: fixed;
     width: $full-width;

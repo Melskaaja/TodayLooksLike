@@ -112,6 +112,10 @@ p {
         --n-rail-color-active: #AD8060;
         --n-box-shadow-focus: 0 0 8px 0 #AD8060;
     }
+    &.color-sport .n-switch__rail {
+        --n-rail-color-active: #a74c8b;
+        --n-box-shadow-focus: 0 0 8px 0 #a74c8b;
+    }
     &.color-period .n-switch__rail {
         --n-rail-color-active: #E64141;
         --n-box-shadow-focus: 0 0 8px 0 #E64141;

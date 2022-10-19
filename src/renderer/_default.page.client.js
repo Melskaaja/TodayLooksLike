@@ -1,8 +1,7 @@
 export { render }
 export const clientRouting = true
 
-import { createApp } from './tll-app'
-import '../scss/tll-app.scss'
+import '../styles/tll-app.scss'
 
 let app
 async function render(pageContext) {
