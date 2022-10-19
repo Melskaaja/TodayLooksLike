@@ -1,11 +1,22 @@
 <script setup>
 import { reactive } from 'vue'
-import { NSpace } from 'naive-ui'
+import { NSpace, NSwitch, NIcon } from 'naive-ui'
+import { Close, Checkmark } from '@vicons/carbon'
+
+let selections = reactive({});
 </script>
     
 <template>
     <n-space>
-        I seriously don't want to think about this.
+        <n-switch v-model:value="selections.chores" class="color-sport">
+            <template #unchecked-icon><n-icon :component="Close"></n-icon></template>
+            <template #checked-icon><n-icon :component="Checkmark"></n-icon></template>
+        </n-switch> Did some chores
+    </n-space>
+    <n-space>
+        <n-switch v-model:value="selections.sport" class="color-sport">
+            <template #unchecked-icon><n-icon :component="Close"></n-icon></template>
+            <template #checked-icon><n-icon :component="Checkmark"></n-icon></template>
+        </n-switch> Participated in sports
     </n-space>
 </template>
-    
