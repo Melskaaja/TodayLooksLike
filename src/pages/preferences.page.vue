@@ -1,5 +1,12 @@
+<script>
+export { documentProps }
+let documentProps = { title: 'Preferences' }
+</script>
+
 <script setup>
-import { NSpace } from 'naive-ui'
+import { computed } from 'vue'
+import { NSpace, NSwitch, NIcon } from 'naive-ui'
+import { Close, Checkmark } from '@vicons/carbon'
 </script>
 
 <template>

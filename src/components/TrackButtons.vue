@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from 'vue';
-import { NButton, NButtonGroup, NIcon } from 'naive-ui';
-import { FaceSatisfied, Friendship, NetworkEnterprise, NoodleBowl, Activity, Chat, RainDrop, Moon } from '@vicons/carbon';
+import { computed, ref } from 'vue'
+import { NButton, NButtonGroup, NIcon } from 'naive-ui'
+import { FaceSatisfied, Friendship, NetworkEnterprise, NoodleBowl, Activity, Chat, RainDrop, Moon } from '@vicons/carbon'
 
 const props = defineProps(['hide', 'only', 'preselected']);
 

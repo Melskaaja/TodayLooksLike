@@ -1,6 +1,11 @@
+<script>
+export { documentProps }
+let documentProps = { title: 'Quick track' }
+</script>
+
 <script setup>
-import { ref } from 'vue';
-import TrackCard from '../components/TrackCard.vue';
+import { ref } from 'vue'
+import TrackCard from '../components/TrackCard.vue'
 </script>
 
 <template>
