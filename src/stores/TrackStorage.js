@@ -7,7 +7,7 @@ export const useTrackStorage = defineStore('tracks', {
     state: () => ({
         all: ['mood', 'social', 'food', 'journal', 'work', 'sport', 'period', 'sleep'],
         labels: ['General mood', 'Social activity', 'Food consumption', 'Open journal', 'Work activity', 'Physical activity', 'Aunt Flo', 'Sleep habits'],
-        active: ['work', 'sleep']
+        active: ['mood', 'social', 'food', 'sleep']
     }),
     actions: {
         activate(item) {
