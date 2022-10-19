@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { NButton, NButtonGroup, NIcon } from 'naive-ui'
 import { FaceSatisfied, Friendship, NetworkEnterprise, NoodleBowl, Activity, Chat, RainDrop, Moon } from '@vicons/carbon'
+import { useTrackStorage } from '../stores/TrackStorage'
 
 const props = defineProps(['hide', 'only', 'preselected']);
 
@@ -15,9 +16,10 @@ const btns = [ // id, label, icon, color
     ['sleep', 'Sleep', Moon, '#2F4270'],
     ['journal', 'Journal', Chat, '#AA75EF']
 ];
+
+const trackStorage = useTrackStorage();
+let visibleBtns = computed(() => trackStorage.active);
 let activeBtn = ref('');
-let visibleBtns = ['mood', 'social', 'food', 'journal', 'work', 'sport', 'period', 'sleep'];
-// TODO get visibleBtns from pinia
 
 if (props.hide?.length) {
     let hidables = props.hide.split(' ');

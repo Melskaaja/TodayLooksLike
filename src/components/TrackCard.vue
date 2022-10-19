@@ -13,8 +13,6 @@ import TrackItemSleep from './TrackItemSleep.vue'
 
 const props = defineProps(['day']);
 
-// TODO get tracks from pinia
-let trackTypes = ['mood', 'social', 'food', 'journal', 'work', 'sport', 'period', 'sleep'];
 let activeTrack = ref('');
 </script>
 
