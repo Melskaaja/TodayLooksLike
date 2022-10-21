@@ -1,9 +1,13 @@
 <script setup>
-import { reactive } from 'vue'
+import { computed } from 'vue'
 import { NSpace, NSwitch, NIcon, NSlider } from 'naive-ui'
 import { Close, RainDrop } from '@vicons/carbon'
+import { useContentStorage } from '../stores/ContentStorage'
 
-let selections = reactive({ active: false, flow: 0 });
+const content = useContentStorage();
+
+let selections = computed(() => content.period)
+
 let flows = {
     4: '🩸🩸🩸🩸',
     3: '🩸🩸🩸',

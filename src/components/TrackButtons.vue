@@ -2,9 +2,7 @@
 import { computed, ref } from 'vue'
 import { NButton, NButtonGroup, NIcon } from 'naive-ui'
 import { FaceSatisfied, Friendship, NetworkEnterprise, NoodleBowl, Activity, Chat, RainDrop, Moon } from '@vicons/carbon'
-import { useTrackStorage } from '../stores/TrackStorage'
-
-const props = defineProps(['hide', 'only', 'preselected']);
+import { useFollowStorage } from '../stores/FollowStorage'
 
 const btns = [ // id, label, icon, color
     ['mood', 'Mood', FaceSatisfied, '#EEC933'],
@@ -17,26 +15,10 @@ const btns = [ // id, label, icon, color
     ['journal', 'Journal', Chat, '#AA75EF']
 ];
 
-const trackStorage = useTrackStorage();
-let visibleBtns = computed(() => trackStorage.active);
-let activeBtn = ref('');
+const followStorage = useFollowStorage();
 
-if (props.hide?.length) {
-    let hidables = props.hide.split(' ');
-    for (let h = 0; h < hidables.length; h++) {
-        let index = visibleBtns.indexOf(hidables[h]);
-        if (index >= 0) {
-            visibleBtns.splice(index, 1);
-        }
-    }
-}
-
-if (props.only?.length) {
-    visibleBtns = props.only.split(' ');
-}
-if (props.preselected?.length) {
-    activeBtn = props.preselected.split(' ')[0];
-}
+let visibleBtns = computed(() => followStorage.followed);
+let activeBtn = ref(followStorage.active);
 </script>
 
 <template>
@@ -46,7 +28,7 @@ if (props.preselected?.length) {
                 v-show="visibleBtns.includes(btn[0])" 
                 :color="btn[3]"
                 :ghost="activeBtn != btn[0]" 
-                @click="activeBtn = (activeBtn != btn[0] ? btn[0] : ''); $emit('selected', activeBtn)">
+                @click="activeBtn = (activeBtn != btn[0] ? btn[0] : ''); followStorage.setActive(activeBtn); $emit('selected', activeBtn)">
             <template #icon>
                 <n-icon :component="btn[2]"></n-icon>
             </template>

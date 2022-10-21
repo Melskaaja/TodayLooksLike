@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import { NCard } from 'naive-ui'
 import TrackButtons from './TrackButtons.vue'
 import TrackItemMood from './TrackItemMood.vue'
@@ -10,15 +10,17 @@ import TrackItemSport from './TrackItemSport.vue'
 import TrackItemJournal from './TrackItemJournal.vue'
 import TrackItemPeriod from './TrackItemPeriod.vue'
 import TrackItemSleep from './TrackItemSleep.vue'
+import { useFollowStorage } from '../stores/FollowStorage'
 
 const props = defineProps(['day']);
+const followStorage = useFollowStorage();
 
-let activeTrack = ref('');
+let activeTrack = computed(() => followStorage.active);
 </script>
 
 <template>
     <n-card>
-        <track-buttons @selected="(btnId) => { activeTrack = btnId }"></track-buttons>
+        <track-buttons></track-buttons>
         <div v-if="activeTrack == 'mood'">
             <track-item-mood></track-item-mood>
         </div>

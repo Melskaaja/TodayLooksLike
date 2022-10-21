@@ -1,8 +1,12 @@
 <script setup>
-import { reactive } from 'vue'
+import { computed } from 'vue'
 import { NSpace, NSlider, NIcon, NButton } from 'naive-ui'
+import { useContentStorage } from '../stores/ContentStorage'
 
-let selected = reactive({ mood: 0, feels: [] })
+const content = useContentStorage();
+
+let trackfunc = computed(() => content)
+let selected = computed(() => content.mood)
 
 let moods = {
     6: '😄 Feeling great!',
@@ -25,15 +29,6 @@ let feels = [
     ['angry', 'Angry', 'error'],
     ['anxious', 'Anxious', 'error']
 ]
-
-function toggleFeelSelection(feel) {
-    if (selected.feels.includes(feel)) {
-        let pos = selected.feels.indexOf(feel);
-        selected.feels.splice(pos, 1);
-    } else {
-        selected.feels.push(feel);
-    }
-}
 </script>
     
 <template>
@@ -42,14 +37,13 @@ function toggleFeelSelection(feel) {
         <n-slider vertical v-model:value="selected.mood" :marks="moods" :max="6" :tooltip="false" style="height: 10rem"></n-slider>
         Specific feelings
         <n-space>
-            <n-button v-for="btn in feels" 
-                    :key="btn[0]" round 
+            <n-button round v-for="btn in feels" 
+                    :key="btn[0]" 
                     :type="btn[2]"
                     :ghost="!selected.feels.includes(btn[0])"
-                    @click="toggleFeelSelection(btn[0])">
+                    @click="trackfunc.toggleFeel(btn[0])">
                 {{ btn[1] }}
             </n-button>
         </n-space>
     </n-space>
 </template>
-  

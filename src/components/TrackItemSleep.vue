@@ -1,14 +1,12 @@
 <script setup>
-import { reactive } from 'vue'
+import { computed } from 'vue'
 import { NSpace, NInputNumber, NSwitch, NIcon } from 'naive-ui'
 import { Close, Checkmark } from '@vicons/carbon'
+import { useContentStorage } from '../stores/ContentStorage'
 
-let selections = reactive({
-    hours: 0,
-    wakes: 0,
-    good: false,
-    bad: false
-});
+const content = useContentStorage();
+
+let selections = computed(() => content.sleep)
 </script>
     
 <template>

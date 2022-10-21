@@ -1,15 +1,13 @@
 <script setup>
-import { reactive } from 'vue'
+import { computed } from 'vue'
 import { NSpace, NInputNumber, NSwitch, NIcon } from 'naive-ui'
 import { Close, Checkmark } from '@vicons/carbon'
+import { useContentStorage } from '../stores/ContentStorage'
 
-let selections = reactive({
-    meals: 0,
-    snacks: 0,
-    healthy: false,
-    sweets: false,
-    savories: false
-});
+const content = useContentStorage();
+
+let selections = computed(() => content.food)
+
 </script>
     
 <template>

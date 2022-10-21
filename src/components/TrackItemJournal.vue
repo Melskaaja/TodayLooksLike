@@ -1,13 +1,15 @@
 <script setup>
-import { ref } from 'vue'
+import { computed } from 'vue'
 import { NSpace, NInput } from 'naive-ui'
+import { useContentStorage } from '../stores/ContentStorage'
 
-let content = ref('');
+const content = useContentStorage();
+
+let journal = computed(() => content.journal)
 </script>
     
 <template>
     <n-space vertical>
-        <n-input v-model:value="content" type="textarea" placeholder="Expands downwards, pull the corner!"></n-input>
+        <n-input v-model:value="journal.text" type="textarea" placeholder="Expands downwards, pull the corner!"></n-input>
     </n-space>
 </template>
-    

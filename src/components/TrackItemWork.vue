@@ -1,9 +1,12 @@
 <script setup>
-import { reactive } from 'vue'
+import { computed } from 'vue'
 import { NSpace, NSwitch, NIcon } from 'naive-ui'
 import { Close, Checkmark, StarFilled } from '@vicons/carbon'
+import { useContentStorage } from '../stores/ContentStorage'
 
-let selections = reactive({ job: false, tasks: false, break: false });
+const content = useContentStorage();
+
+let selections = computed(() => content.sport)
 </script>
     
 <template>
