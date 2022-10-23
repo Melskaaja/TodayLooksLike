@@ -1,11 +1,7 @@
 <script setup>
 import { navigate } from 'vite-plugin-ssr/client/router'
 import { useAuthenticated, useSignOut } from '@nhost/vue'
-<<<<<<< HEAD
 import { NConfigProvider, NSpace, NAlert, NButtonGroup, NIcon, NButton } from 'naive-ui'
-=======
-import { NConfigProvider, NSpace, NAlert, NIcon, NButton } from 'naive-ui'
->>>>>>> d418c2038e85745c649c57b5cc596e5886d08cca
 import { createTheme, cardDark, sliderDark, inputDark, switchDark, inputNumberDark, alertDark } from 'naive-ui'
 import { Login, Pen, SettingsAdjust, Logout } from '@vicons/carbon'
 
