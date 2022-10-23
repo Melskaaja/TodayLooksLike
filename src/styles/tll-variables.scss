@@ -29,16 +29,16 @@ $full-width: calc(100% - 0.1rem);
 
 /* Common colors for dark scheme */
 $text: #eee;
-$link: paleturquoise;
-$link-hover: cadetblue;
+$link: #1cb5b5;
+$link-hover: #0a5050;
 $background: #242424;
 $header-background: $background;
 $footer-background: $background;
 
 /* Replacements for light scheme */
-$light-text: #213547;
-$light-link: #222;
-$light-link-hover: #333;
+$light-text: #242424;
+$light-link: #0a5050;
+$light-link-hover: #1cb5b5;
 $light-background: $text;
 $light-header-background: $light-background;
 $light-footer-background: $light-background;
