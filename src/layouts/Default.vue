@@ -1,7 +1,12 @@
 <script setup>
+import { navigate } from 'vite-plugin-ssr/client/router'
+import { useAuthenticated, useSignOut } from '@nhost/vue'
 import { NConfigProvider, NSpace, NAlert, NIcon, NButton } from 'naive-ui'
 import { createTheme, cardDark, sliderDark, inputDark, switchDark, inputNumberDark, alertDark } from 'naive-ui'
 import { Login, Pen, SettingsAdjust, Logout } from '@vicons/carbon'
+
+const isAuthenticated = useAuthenticated();
+const { signOut } = useSignOut();
 
 let tllTheme = createTheme([ cardDark, sliderDark, inputDark, switchDark, inputNumberDark, alertDark ]);
 let tllOverride = {
@@ -28,6 +33,11 @@ let tllOverride = {
 };
 
 let year = new Date().getFullYear();
+
+const handleLogout = async () => {
+    signOut();
+    await navigate('/login');
+}
 </script>
 
 <template>
@@ -35,6 +45,12 @@ let year = new Date().getFullYear();
         <header>
             <nav>
                 <n-space>
+                    <a v-show="!isAuthenticated" href="/login">
+                        <n-button type="success" quaternary round>
+                            <n-icon :component="Login" size="22"/>
+                            <label>Log in</label>
+                        </n-button>
+                    </a>
                     <a href="/">
                         <n-button type="primary" quaternary round>
                             <n-icon :component="Pen" size="22"/>
@@ -47,11 +63,22 @@ let year = new Date().getFullYear();
                             <label>Preferences</label>
                         </n-button>
                     </a>
+                    <n-button v-show="isAuthenticated" type="error" quaternary round @click="handleLogout()">
+                        <n-icon :component="Logout" size="22"/>
+                        <label>Log out</label>
+                    </n-button>
                 </n-space>
             </nav>
         </header>
 
-        <main><slot /></main>
+        <main>
+            <n-space v-if="!isAuthenticated" justify="center">
+                <n-alert type="warning" title="You're not logged in!" closable>
+                    Any tracking info you enter before logging in will not be saved.
+                </n-alert>
+            </n-space>
+            <slot />
+        </main>
 
         <footer>
             <p>&copy; {{ year }} <a href="https://github.com/Melskaaja" target="_blank">Melskaaja</a></p>
