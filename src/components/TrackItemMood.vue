@@ -21,9 +21,9 @@ let moods = {
 let feels = [
     ['calm', 'Calm', 'info'],
     ['tired', 'Tired', 'info'],
-    ['happy', 'Happy', 'primary'],
-    ['love', 'In love', 'primary'],
-    ['lucky', 'Lucky', 'primary'],
+    ['happy', 'Happy', 'success'],
+    ['love', 'In love', 'success'],
+    ['lucky', 'Lucky', 'success'],
     ['unsure', 'Unsure', 'warning'],
     ['stressed', 'Stressed', 'warning'],
     ['angry', 'Angry', 'error'],

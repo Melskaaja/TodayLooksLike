@@ -1,9 +1,9 @@
 <script setup>
-import { NConfigProvider, NIcon } from 'naive-ui';
-import { createTheme, cardDark, sliderDark, inputDark, switchDark, inputNumberDark } from 'naive-ui';
-import { Lightning, SettingsAdjust } from '@vicons/carbon';
+import { NConfigProvider, NSpace, NAlert, NIcon, NButton } from 'naive-ui'
+import { createTheme, cardDark, sliderDark, inputDark, switchDark, inputNumberDark, alertDark } from 'naive-ui'
+import { Login, Pen, SettingsAdjust, Logout } from '@vicons/carbon'
 
-let tllTheme = createTheme([ cardDark, sliderDark, inputDark, switchDark, inputNumberDark ]);
+let tllTheme = createTheme([ cardDark, sliderDark, inputDark, switchDark, inputNumberDark, alertDark ]);
 let tllOverride = {
     common: {
         fontFamily: 'Dosis, Helvetica, Arial, sans-serif',
@@ -13,7 +13,11 @@ let tllOverride = {
         fontSizeMedium: '18px',
         fontSizeMini: '15px',
         fontSizeSmall: '15px',
-        fontSizeTiny: '12px'
+        fontSizeTiny: '12px',
+        primaryColor: '#169292',
+        primaryColorHover: '#1cb5b5',
+        primaryColorPressed: '#107070',
+        primaryColorSuppl: '#0a5050'
     },
     slider: {
         markFontSize: '15px'
@@ -30,14 +34,20 @@ let year = new Date().getFullYear();
     <n-config-provider :theme="tllTheme" :themeOverrides="tllOverride">
         <header>
             <nav>
-                <a class="navitem" href="/">
-                    <n-icon :component="Lightning"/>
-                    <label>Quick view</label>
-                </a>
-                <a class="navitem" href="/preferences">
-                    <n-icon :component="SettingsAdjust"/>
-                    <label>Preferences</label>
-                </a>
+                <n-space>
+                    <a href="/">
+                        <n-button type="primary" quaternary round>
+                            <n-icon :component="Pen" size="22"/>
+                            <label>Tracking</label>
+                        </n-button>
+                    </a>
+                    <a href="/preferences">
+                        <n-button type="primary" quaternary round>
+                            <n-icon :component="SettingsAdjust" size="22"/>
+                            <label>Preferences</label>
+                        </n-button>
+                    </a>
+                </n-space>
             </nav>
         </header>
 
@@ -66,20 +76,11 @@ header {
         justify-content: center;
         padding: 0;
         height: $header-height;
-        .navitem {
-            padding: 3px 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .n-icon {
-                font-size: 1.2rem;
-            }
-            label {
-                display: none;
-                @media (min-width: $breakpoint-sm) {
-                    display: inline;
-                    padding-left: $gap * 0.5;
-                }
+        .n-button label {
+            margin-left: 0.6rem;
+            display: none;
+            @media (min-width: $breakpoint-md) {
+                display: inline;
             }
         }
     }

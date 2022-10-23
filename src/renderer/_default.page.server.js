@@ -11,10 +11,10 @@ const passToClient = ['Layout', 'documentProps', 'pageProps', 'initialStoreState
 async function render(ctx) {
     let { app, pinia } = createApp(ctx);
 
+    let title = getPageTitle(ctx);
+    let appHtml = await renderToString(app);
+    
     ctx.initialStoreState = pinia.state.value;
-    const appHtml = await renderToString(app);
-
-    const title = getPageTitle(ctx);
 
     return escapeInject`<!DOCTYPE html>
 <html lang="en">

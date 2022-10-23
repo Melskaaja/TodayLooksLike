@@ -1,6 +1,6 @@
 <script>
 export { documentProps }
-let documentProps = { title: 'Quick track' }
+let documentProps = { title: 'Tracking' }
 </script>
 
 <script setup>
@@ -9,7 +9,7 @@ import TrackCard from '../components/TrackCard.vue'
 </script>
 
 <template>
-    <h1 class="first">Quick track</h1>
+    <h1 class="first">Tracking for today</h1>
     <track-card></track-card>
 </template>
 
