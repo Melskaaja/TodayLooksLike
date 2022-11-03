@@ -2,9 +2,9 @@
 import { computed } from 'vue'
 import { NSpace, NSwitch, NIcon } from 'naive-ui'
 import { Close, Checkmark, StarFilled } from '@vicons/carbon'
-import { useContentStorage } from '../stores/ContentStorage'
+import { useContentStore } from '../stores/ContentStore'
 
-const content = useContentStorage();
+const content = useContentStore();
 
 let selections = computed(() => content.sport)
 </script>

@@ -4,6 +4,7 @@ import { useAuthenticated, useNhostClient, useSignOut } from '@nhost/vue'
 import { NConfigProvider, NSpace, NAlert, NButtonGroup, NIcon, NButton } from 'naive-ui'
 import { createTheme, cardDark, sliderDark, inputDark, switchDark, inputNumberDark, alertDark } from 'naive-ui'
 import { Login, Pen, SettingsAdjust, Logout } from '@vicons/carbon'
+import { archiveAllStores, clearAllStores } from '../renderer/Storage'
 
 const { nhost } = useNhostClient();
 const isAuthenticated = useAuthenticated();
@@ -36,6 +37,8 @@ let tllOverride = {
 let year = new Date().getFullYear();
 
 const handleLogout = async () => {
+    //archiveAllStores(nhost);
+    clearAllStores();
     signOut();
     await navigate('/login');
 }

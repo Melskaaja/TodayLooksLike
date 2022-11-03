@@ -2,9 +2,9 @@
 import { computed } from 'vue'
 import { NSpace, NSwitch, NIcon, NSlider } from 'naive-ui'
 import { Close, RainDrop } from '@vicons/carbon'
-import { useContentStorage } from '../stores/ContentStorage'
+import { useContentStore } from '../stores/ContentStore'
 
-const content = useContentStorage();
+const content = useContentStore();
 
 let selections = computed(() => content.period)
 

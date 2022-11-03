@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { NButton, NButtonGroup, NIcon } from 'naive-ui'
 import { FaceSatisfied, Friendship, NetworkEnterprise, NoodleBowl, Activity, Chat, RainDrop, Moon } from '@vicons/carbon'
-import { useFollowStorage } from '../stores/FollowStorage'
+import { useFollowStore } from '../stores/FollowStore'
 
 const btns = [ // id, label, icon, color
     ['mood', 'Mood', FaceSatisfied, '#EEC933'],
@@ -15,10 +15,10 @@ const btns = [ // id, label, icon, color
     ['journal', 'Journal', Chat, '#AA75EF']
 ];
 
-const followStorage = useFollowStorage();
+const followStore = useFollowStore();
 
-let visibleBtns = computed(() => followStorage.followed);
-let activeBtn = ref(followStorage.active);
+let visibleBtns = computed(() => followStore.followed);
+let activeBtn = ref(followStore.active);
 </script>
 
 <template>
@@ -28,7 +28,7 @@ let activeBtn = ref(followStorage.active);
                 v-show="visibleBtns.includes(btn[0])" 
                 :color="btn[3]"
                 :ghost="activeBtn != btn[0]" 
-                @click="activeBtn = (activeBtn != btn[0] ? btn[0] : ''); followStorage.setActive(activeBtn); $emit('selected', activeBtn)">
+                @click="activeBtn = (activeBtn != btn[0] ? btn[0] : ''); followStore.setActive(activeBtn); $emit('selected', activeBtn)">
             <template #icon>
                 <n-icon :component="btn[2]"></n-icon>
             </template>

@@ -10,12 +10,12 @@ import TrackItemSport from './TrackItemSport.vue'
 import TrackItemJournal from './TrackItemJournal.vue'
 import TrackItemPeriod from './TrackItemPeriod.vue'
 import TrackItemSleep from './TrackItemSleep.vue'
-import { useFollowStorage } from '../stores/FollowStorage'
+import { useFollowStore } from '../stores/FollowStore'
 
 const props = defineProps(['day']);
-const followStorage = useFollowStorage();
+const followStore = useFollowStore();
 
-let activeTrack = computed(() => followStorage.active);
+let activeTrack = computed(() => followStore.active);
 </script>
 
 <template>

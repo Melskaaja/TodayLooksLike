@@ -1,9 +1,9 @@
 <script setup>
 import { computed } from 'vue'
 import { NSpace, NSlider, NIcon, NButton } from 'naive-ui'
-import { useContentStorage } from '../stores/ContentStorage'
+import { useContentStore } from '../stores/ContentStore'
 
-const content = useContentStorage();
+const content = useContentStore();
 
 let trackfunc = computed(() => content)
 let selected = computed(() => content.mood)

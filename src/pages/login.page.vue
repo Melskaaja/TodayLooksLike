@@ -9,19 +9,20 @@ import { navigate } from 'vite-plugin-ssr/client/router'
 import { NSpace, NSpin, NCard, NInput, NButton, NIcon } from 'naive-ui'
 import { At, Password, ViewFilled, ViewOffFilled } from '@vicons/carbon'
 import { useSignInEmailPassword, useNhostClient } from '@nhost/vue'
+import { hydrateAllStores } from '../renderer/Storage'
 
 let { signInEmailPassword, needsEmailVerification } = useSignInEmailPassword();
 const { nhost } = useNhostClient();
 
 let email = ref('');
 let password = ref('');
-
 let showLoginSpin = ref(false);
 
 let handleSubmit = async () => {
     showLoginSpin.value = true;
     let { isSuccess } = await signInEmailPassword(email.value, password.value);
     if (isSuccess) {
+        hydrateAllStores(nhost);
         await navigate('/');
     } else {
         showLoginSpin.value = false;

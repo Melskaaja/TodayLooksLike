@@ -1,9 +1,9 @@
 <script setup>
 import { computed } from 'vue'
 import { NSpace, NInput } from 'naive-ui'
-import { useContentStorage } from '../stores/ContentStorage'
+import { useContentStore } from '../stores/ContentStore'
 
-const content = useContentStorage();
+const content = useContentStore();
 
 let journal = computed(() => content.journal)
 </script>
