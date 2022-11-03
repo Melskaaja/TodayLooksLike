@@ -16,19 +16,19 @@ I don't have a concrete plan in place for this app, but some things have been ro
 Framework
 - Vue 3 https://vuejs.org/
 
+UI & UX
+- Naive UI components https://www.naiveui.com/en-US/
+- xicons https://www.xicons.org/
+
+Data storage
+- Pinia for in-app store https://pinia.vuejs.org/
+- Nhost for permanent store https://nhost.io/
+
 Dev tools
 - Vite https://vitejs.dev/
   - Vue SFC plugin https://github.com/vitejs/vite/tree/main/packages/plugin-vue
   - Vite SSR Plugin https://vite-plugin-ssr.com/
 - Sass https://sass-lang.com/
 - PostCSS https://postcss.org/
-  - PostCSS Nested https://github.com/postcss/postcss-nested
+  - PostCSS Nested https://github.com/postcss/postcss-nested/
   - Autoprefixer https://autoprefixer.github.io/
-
-UI & UX
-- Naive UI components https://www.naiveui.com/en-US/
-- xicons https://www.xicons.org/
-
-Data storing
-- Pinia for session store https://pinia.vuejs.org/
-- Mongodb (soon) https://www.mongodb.com/
