@@ -8,9 +8,10 @@ import { ref } from 'vue'
 import { navigate } from 'vite-plugin-ssr/client/router'
 import { NSpace, NSpin, NCard, NInput, NButton, NIcon } from 'naive-ui'
 import { At, Password, ViewFilled, ViewOffFilled } from '@vicons/carbon'
-import { useSignInEmailPassword } from '@nhost/vue'
+import { useSignInEmailPassword, useNhostClient } from '@nhost/vue'
 
-let { signInEmailPassword, needsEmailVerification } = useSignInEmailPassword()
+let { signInEmailPassword, needsEmailVerification } = useSignInEmailPassword();
+const { nhost } = useNhostClient();
 
 let email = ref('');
 let password = ref('');
@@ -21,7 +22,7 @@ let handleSubmit = async () => {
     showLoginSpin.value = true;
     let { isSuccess } = await signInEmailPassword(email.value, password.value);
     if (isSuccess) {
-        await navigate('/')
+        await navigate('/');
     } else {
         showLoginSpin.value = false;
     }

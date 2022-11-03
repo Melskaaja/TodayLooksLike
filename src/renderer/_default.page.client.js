@@ -9,9 +9,11 @@ let app
 
 async function render(ctx) {
     if (!app) {
-        let created = createApp(ctx);
-        created.pinia.state.value = ctx.initialStoreState;
-        app = created.app
+        let creation = createApp(ctx);
+
+        creation.pinia.state.value = ctx.initialStoreState;
+        
+        app = creation.app;
         app.mount('#app');
     } else {
         app.changePage(ctx);

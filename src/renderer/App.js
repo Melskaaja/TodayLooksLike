@@ -1,4 +1,3 @@
-// separate app creation, so it can be called the same from both server and client
 import { createSSRApp, h, markRaw, reactive } from 'vue'
 import { createPinia } from 'pinia'
 import { createNhostClient } from './Nhost'
@@ -28,10 +27,13 @@ function createApp(pageContext) {
         }
     });
 
-    // cross-app store and remote db
+    // nhost client and pinia setup
+    const { nhost, apollo, defaultApollo } = createNhostClient();
     const pinia = createPinia();
-    const nhost = createNhostClient();
-    app.use(pinia).use(nhost);
+
+    app.provide(defaultApollo, apollo)
+       .use(pinia)
+       .use(nhost);
 
     // for client routing
     app.changePage = (ctx) => {

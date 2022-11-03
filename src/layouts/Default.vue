@@ -1,10 +1,11 @@
 <script setup>
 import { navigate } from 'vite-plugin-ssr/client/router'
-import { useAuthenticated, useSignOut } from '@nhost/vue'
+import { useAuthenticated, useNhostClient, useSignOut } from '@nhost/vue'
 import { NConfigProvider, NSpace, NAlert, NButtonGroup, NIcon, NButton } from 'naive-ui'
 import { createTheme, cardDark, sliderDark, inputDark, switchDark, inputNumberDark, alertDark } from 'naive-ui'
 import { Login, Pen, SettingsAdjust, Logout } from '@vicons/carbon'
 
+const { nhost } = useNhostClient();
 const isAuthenticated = useAuthenticated();
 const { signOut } = useSignOut();
 
