@@ -12,7 +12,7 @@ function createNhostClient() {
     });
     
     let apollo = createApolloClient({ nhost });
-    let defaultApollo = DefaultApolloClient;
+    let apolloSymbol = DefaultApolloClient;
 
-    return { nhost, apollo, defaultApollo }
+    return { nhost, apollo, apolloSymbol }
 }

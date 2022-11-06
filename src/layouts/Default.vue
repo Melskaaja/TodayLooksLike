@@ -1,85 +1,21 @@
 <script setup>
-import { navigate } from 'vite-plugin-ssr/client/router'
-import { useAuthenticated, useNhostClient, useSignOut } from '@nhost/vue'
-import { NConfigProvider, NSpace, NAlert, NButtonGroup, NIcon, NButton } from 'naive-ui'
-import { createTheme, cardDark, sliderDark, inputDark, switchDark, inputNumberDark, alertDark } from 'naive-ui'
-import { Login, Pen, SettingsAdjust, Logout } from '@vicons/carbon'
-import { archiveAllStores, clearAllStores } from '../renderer/Storage'
+import { NConfigProvider } from 'naive-ui'
+import { tllTheme, tllOverride } from './Theme.js'
 
-const { nhost } = useNhostClient();
-const isAuthenticated = useAuthenticated();
-const { signOut } = useSignOut();
-
-let tllTheme = createTheme([ cardDark, sliderDark, inputDark, switchDark, inputNumberDark, alertDark ]);
-let tllOverride = {
-    common: {
-        fontFamily: 'Dosis, Helvetica, Arial, sans-serif',
-        fontSize: '18px',
-        fontSizeHuge: '22px',
-        fontSizeLarge: '20px',
-        fontSizeMedium: '18px',
-        fontSizeMini: '15px',
-        fontSizeSmall: '15px',
-        fontSizeTiny: '12px',
-        primaryColor: '#169292',
-        primaryColorHover: '#1cb5b5',
-        primaryColorPressed: '#107070',
-        primaryColorSuppl: '#0a5050'
-    },
-    slider: {
-        markFontSize: '15px'
-    },
-    input: {
-        fontSizeMedium: '16px'
-    }
-};
-
-let year = new Date().getFullYear();
-
-const handleLogout = async () => {
-    //archiveAllStores(nhost);
-    clearAllStores();
-    signOut();
-    await navigate('/login');
-}
 </script>
 
 <template>
     <n-config-provider :theme="tllTheme" :themeOverrides="tllOverride">
         <header>
-            <nav>
-                <n-button-group>
-                    <n-button v-if="!isAuthenticated" type="success" quaternary round @click="navigate('/login')" class="collapse">
-                        <template #icon><n-icon :component="Login" size="22"/></template>
-                        <template #default>Log in</template>
-                    </n-button>
-                    <n-button type="primary" quaternary round @click="navigate('/')" class="collapse">
-                        <template #icon><n-icon :component="Pen" size="22"/></template>
-                        <template #default>Tracking</template>
-                    </n-button>
-                    <n-button type="primary" quaternary round @click="navigate('/preferences')" class="collapse">
-                        <template #icon><n-icon :component="SettingsAdjust" size="22"/></template>
-                        <template #default>Preferences</template>
-                    </n-button>
-                    <n-button v-if="isAuthenticated" type="error" quaternary round @click="handleLogout()" class="collapse">
-                        <template #icon><n-icon :component="Logout" size="22"/></template>
-                        <template #default>Log out</template>
-                    </n-button>
-                </n-button-group>
-            </nav>
+            <nav></nav>
         </header>
 
         <main>
-            <n-space v-if="!isAuthenticated" justify="center">
-                <n-alert type="warning" title="You're not logged in!" closable>
-                    Any tracking info you enter before logging in will not be saved.
-                </n-alert>
-            </n-space>
             <slot />
         </main>
 
         <footer>
-            <p>&copy; {{ year }} <a href="https://github.com/Melskaaja" target="_blank">Melskaaja</a></p>
+            <p>&copy; {{ new Date().getFullYear() }} <a href="https://github.com/Melskaaja" target="_blank">Melskaaja</a></p>
         </footer>
     </n-config-provider>
 </template>
